@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  * 対象クラスのテスト用サブクラスをテスト内で作成(Test-Specific Subclass)アプローチのパラメタライズドテストの例
  */
 @RunWith(Parameterized.class)
-public class GreeterParameterizedTest {
+public class JapaneseGreeterParameterizedTest {
 
     private static AbstractGreeter createGreeterWithHourMinuteSecond(final int hour, final int minute, final int second) {
         return new JapaneseGreeter() {
@@ -50,7 +50,7 @@ public class GreeterParameterizedTest {
     private final Fixture params;
     private final String expected;
 
-    public GreeterParameterizedTest(Fixture fixture, String expected) {
+    public JapaneseGreeterParameterizedTest(Fixture fixture, String expected) {
         this.params = fixture;
         this.expected = expected;
     }

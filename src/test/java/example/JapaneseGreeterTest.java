@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  * <p/>
  * 対象クラスのテスト用サブクラスをテスト内で作成(Test-Specific Subclass)アプローチの例
  */
-public class GreeterTest {
+public class JapaneseGreeterTest {
 
     private static AbstractGreeter createGreeterWithHourMinuteSecond(final int hour, final int minute, final int second) {
         return new JapaneseGreeter() {

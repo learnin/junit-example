@@ -13,22 +13,33 @@ import java.util.Date;
 public abstract class AbstractGreeter {
 
     public String greet() {
-        DateTime dt = new DateTime(getNow());
-        int nowHour = dt.hourOfDay().get();
-        if (nowHour >= 5 && nowHour < 12) {
+        Date now = getNow();
+        if (isMorning(now)) {
             return goodMorning();
-        } else if (nowHour >= 12 && nowHour < 18) {
-            return goodAfternoon();
-        } else {
-            return goodEvening();
         }
+        if (isAfternoon(now)) {
+            return goodAfternoon();
+        }
+        return goodEvening();
     }
 
-    protected abstract String goodEvening();
+    protected abstract String goodMorning();
 
     protected abstract String goodAfternoon();
 
-    protected abstract String goodMorning();
+    protected abstract String goodEvening();
+
+    private boolean isMorning(Date date) {
+        DateTime dt = new DateTime(date);
+        int nowHour = dt.hourOfDay().get();
+        return nowHour >= 5 && nowHour < 12;
+    }
+
+    private boolean isAfternoon(Date date) {
+        DateTime dt = new DateTime(date);
+        int nowHour = dt.hourOfDay().get();
+        return nowHour >= 12 && nowHour < 18;
+    }
 
     protected Date getNow() {
         return new Date();
